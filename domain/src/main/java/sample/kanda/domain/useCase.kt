@@ -6,6 +6,6 @@ package sample.kanda.domain
 class CompanyUseCase(val dataSource: LocalRepository) {
 
     fun save(company: Company) {
-        TODO("Implementation needed")
+        dataSource.save(company)
     }
 }

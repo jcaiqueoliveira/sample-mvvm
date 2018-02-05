@@ -5,11 +5,13 @@ package sample.kanda.domain
  */
 
 interface LocalRepository {
-    fun save(any: Any)
+    fun save(company: Company)
 
-    fun listCompanies(): List<*>
+    fun getCompanies(): List<Company>
 }
 
 interface FieldsRepository {
+    fun save(label: Label)
 
+    fun getLabelsScreen(): Label
 }
