@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Sample-Mvvm</string>
+    <string name="home_empty_state">Você ainda não possui nenhuma companhia cadastrada</string>
 </resources>

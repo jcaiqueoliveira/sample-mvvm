@@ -6,6 +6,6 @@ package sample.kanda.domain
 class CompanyUseCase(val dataSource: LocalRepository) {
 
     fun save(company: Company) {
-        dataSource.save(company)
+        dataSource.create(company)
     }
 }
