@@ -13,7 +13,7 @@ import sample.kanda.domain.*
 class Injector {
     val kodein = Kodein {
 
-        bind<ContacManagerUseCase>() with provider { ContacManagerUseCase(dataSource = instance()) }
+        bind<ContactManagerUseCase>() with provider { ContactManagerUseCase(dataSource = instance()) }
 
         bind<LocalRepository>() with provider { LocalDataSource() }
     }
