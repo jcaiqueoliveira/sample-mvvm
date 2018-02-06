@@ -1,6 +1,6 @@
 package sample.kanda.data
 
-import sample.kanda.domain.Company
+import sample.kanda.domain.Contact
 import sample.kanda.domain.FieldsRepository
 import sample.kanda.domain.Label
 import sample.kanda.domain.LocalRepository
@@ -14,15 +14,15 @@ class LocalDataSource : LocalRepository, FieldsRepository {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getLabelsScreen(): Label {
+    override fun getLabelsByScreen(): Label {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun create(company: Company) {
+    override fun addContact(contact: Contact) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getCompanies(): List<Company> {
+    override fun getContacts(): List<Contact> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

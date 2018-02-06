@@ -14,9 +14,9 @@ data class Label(val labelName: String,
 
 data class Action(val url: String)
 
-data class Company(val name: String,
-                   val email: String,
-                   val telephone: String,
-                   val fantasyName: String,
-                   val cnpj: String,
-                   val isMei: Boolean)
+data class Contact(val name: String,
+                  val email: String,
+                  val telephone: String,
+                  val fantasyName: String,
+                  val cnpj: String,
+                  val isMei: Boolean)

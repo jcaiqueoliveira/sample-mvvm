@@ -1,11 +1,11 @@
-package sample.kanda.sample_mvvm
+package sample.kanda.mvvm
 
 import com.github.salomonbrys.kodein.Kodein
 import com.github.salomonbrys.kodein.bind
 import com.github.salomonbrys.kodein.instance
 import com.github.salomonbrys.kodein.provider
-import sample.kanda.data.LocalDataSource
-import sample.kanda.domain.CompanyUseCase
+import sample.kanda.data.*
+import sample.kanda.domain.*
 
 /**
  * Created by jcosilva on 2/5/2018.
@@ -13,9 +13,8 @@ import sample.kanda.domain.CompanyUseCase
 class Injector {
     val kodein = Kodein {
 
-        bind<CompanyUseCase>() with provider { CompanyUseCase(dataSource = instance()) }
+        bind<ContactManagerUseCase>() with provider { ContactManagerUseCase(dataSource = instance()) }
 
-        bind<LocalDataSource>() with provider { LocalDataSource() }
-
+        bind<LocalRepository>() with provider { LocalDataSource() }
     }
 }

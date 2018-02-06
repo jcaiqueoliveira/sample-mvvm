@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android'
+
 android {
     compileSdkVersion 26
 
@@ -34,5 +36,5 @@ dependencies {
     implementation project(':domain')
 
     implementation 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    kapt "android.arch.persistence.room:compiler:1.0.0"
 }
