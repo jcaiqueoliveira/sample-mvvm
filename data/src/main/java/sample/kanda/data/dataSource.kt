@@ -10,7 +10,7 @@ import sample.kanda.domain.LocalRepository
  */
 
 class LocalDataSource : LocalRepository, FieldsRepository {
-    override fun save(label: Label) {
+    override fun create(label: Label) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -18,7 +18,7 @@ class LocalDataSource : LocalRepository, FieldsRepository {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun save(company: Company) {
+    override fun create(company: Company) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
