@@ -1,4 +1,4 @@
-package sample.kanda.sample_mvvm
+package sample.kanda.mvvm
 
 import android.app.Application
 import com.github.salomonbrys.kodein.Kodein

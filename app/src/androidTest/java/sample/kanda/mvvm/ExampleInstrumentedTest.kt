@@ -1,4 +1,4 @@
-package sample.kanda.sample_mvvm
+package sample.kanda.mvvm
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
