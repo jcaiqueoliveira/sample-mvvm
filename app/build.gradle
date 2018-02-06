@@ -33,8 +33,7 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
     implementation 'com.github.salomonbrys.kodein:kodein:4.1.0'
     implementation 'com.github.salomonbrys.kodein:kodein-android:4.1.0'
-    implementation 'android.arch.persistence.room:runtime:1.0.0'
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
     implementation project(':domain')
     implementation project(':data')
 }
