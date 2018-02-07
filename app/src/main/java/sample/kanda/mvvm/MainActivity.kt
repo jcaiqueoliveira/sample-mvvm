@@ -1,4 +1,4 @@
-package sample.kanda.sample_mvvm
+package sample.kanda.mvvm
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

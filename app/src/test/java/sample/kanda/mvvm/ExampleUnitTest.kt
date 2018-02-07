@@ -1,4 +1,4 @@
-package sample.kanda.sample_mvvm
+package sample.kanda.mvvm
 
 import org.junit.Test
 
