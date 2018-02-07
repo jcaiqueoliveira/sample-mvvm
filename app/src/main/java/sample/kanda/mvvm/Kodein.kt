@@ -15,10 +15,14 @@ import sample.kanda.mvvm.home.homeModule
 class Injector {
     val kodein = Kodein {
 
-        bind<ContactManagerUseCase>() with provider { ContactManagerUseCase(dataSource = instance()) }
+        bind<ContactManagerUseCase>() with provider { ContactManagerUseCase(dataSource = instance("InMemory")) }
 
-        bind<LocalRepository>() with provider { LocalDataSource() }
+        bind<LocalRepository>(DB) with provider { LocalDataSource() }
 
         import(homeModule)
+    }
+
+    companion object {
+        val DB = "DataBase"
     }
 }

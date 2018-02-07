@@ -10,6 +10,7 @@ import com.github.salomonbrys.kodein.android.appKodein
 import com.github.salomonbrys.kodein.instance
 import kotlinx.android.synthetic.main.activity_main.*
 import sample.kanda.mvvm.R
+import sample.kanda.mvvm.gone
 import sample.kanda.mvvm.viewModelProvider
 import sample.kanda.mvvm.visible
 
@@ -38,12 +39,7 @@ class HomeActivity : AppCompatActivity() {
         when (state) {
             State.EmptyState -> {
                 emptyState.visible()
-                addContact.visible()
-            }
-            is State.InitFields -> {
-                state.label.action?.url?.apply {
-                    action.data = Uri.parse(this)
-                }
+                contactList.gone()
             }
         }
     }
