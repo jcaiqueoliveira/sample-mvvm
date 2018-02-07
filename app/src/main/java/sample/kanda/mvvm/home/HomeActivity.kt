@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import com.github.salomonbrys.kodein.LazyKodein
 import com.github.salomonbrys.kodein.android.appKodein
 import com.github.salomonbrys.kodein.instance
@@ -23,16 +24,13 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setUpViews()
         viewModel.init()
         viewModel.liveData.observe(this, Observer { state ->
             state?.apply {
                 manageState(this)
             }
         })
-        addContact.setOnClickListener {
-            action.data = Uri.parse("app://open.register")
-            startActivity(action)
-        }
     }
 
     private fun manageState(state: State) {
@@ -41,7 +39,28 @@ class HomeActivity : AppCompatActivity() {
                 emptyState.visible()
                 contactList.gone()
             }
+            is State.ListContacts -> {
+                contactList.visible()
+                emptyState.gone()
+                feedList(state.listContacts)
+            }
         }
     }
 
+    fun setUpViews() {
+        val manager = LinearLayoutManager(this)
+        contactList.apply {
+            setHasFixedSize(true)
+            layoutManager = manager
+        }
+
+        addContact.setOnClickListener {
+            action.data = Uri.parse("app://open.register")
+            startActivity(action)
+        }
+    }
+
+    fun feedList(list: List<ContactPresentation>) {
+        contactList.adapter = Adapter(list)
+    }
 }

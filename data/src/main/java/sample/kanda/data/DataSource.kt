@@ -33,10 +33,10 @@ class InMemory : LocalRepository {
     override fun getContacts(): List<Contact> {
         val list: MutableList<Contact> = mutableListOf()
         val contact = Contact(
-                name = "Kanda",
+                name = "Kanda Sup Sa",
                 email = "Kanda@Kanda.Kanda",
                 telephone = 12_34567_8900.toString(),
-                fantasyName = "Kendo",
+                fantasyName = "Kendo Kappa Keppo",
                 cnpj = 27_825_363_0001_12.toString(),
                 isMei = true)
 
