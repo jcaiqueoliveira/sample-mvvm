@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    tools:context="sample.kanda.mvvm.MainActivity">
+    tools:context="sample.kanda.mvvm.home.HomeActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -16,7 +16,7 @@
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/emptyState"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -28,13 +28,13 @@
         android:visibility="gone" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/addContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="8dp"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_add" />
 
 </RelativeLayout>
