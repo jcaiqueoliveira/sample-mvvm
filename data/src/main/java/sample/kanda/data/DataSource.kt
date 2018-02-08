@@ -26,8 +26,8 @@ class LocalDataSource : LocalRepository, FieldsRepository {
 }
 
 
-class InMemory : LocalRepository {
-    override fun getContacts(): List<Contact> {
+class InMemory : RetrieveContacts {
+    override fun getAll(): List<Contact> {
         val list: MutableList<Contact> = mutableListOf()
         val contact = Contact(
                 name = "Kanda Sup Sa",
@@ -44,17 +44,6 @@ class InMemory : LocalRepository {
             add(contact)
             add(contact)
         }
-    }
-
-    override fun addContact(contact: Contact) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-}
-
-class RetrieveContactsDataSource : RetrieveContacts {
-    override fun getAll(): List<Contact> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
