@@ -1,24 +1,20 @@
 package sample.kanda.mvvm.home
 
-import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import sample.kanda.domain.ContactManagerUseCase
+import sample.kanda.domain.RetrieveContacts
 
 /**
  * Created by jcosilva on 2/6/2018.
  */
-class HomeViewModel(private val contactManagerUseCase: ContactManagerUseCase) : ViewModel() {
+class HomeViewModel(private val contacts: RetrieveContacts) : ViewModel() {
 
-    val liveData = MutableLiveData<State>()
-
-    fun init() {
-        contactManagerUseCase
-                .retrieveContacts()
+    fun execute(): State {
+       return contacts
+                .getAll()
                 .map { MapperContactToPresentation(it) }
                 .let {
                     if (it.isEmpty()) State.EmptyState else State.ListContacts(it)
                 }
-                .let { liveData.value = it }
     }
 
 }

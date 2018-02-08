@@ -1,6 +1,5 @@
 package sample.kanda.mvvm.home
 
-import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -25,12 +24,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpViews()
-        viewModel.init()
-        viewModel.liveData.observe(this, Observer { state ->
-            state?.apply {
-                manageState(this)
-            }
-        })
+        viewModel
+                .execute()
+                .let { manageState(it) }
     }
 
     private fun manageState(state: State) {

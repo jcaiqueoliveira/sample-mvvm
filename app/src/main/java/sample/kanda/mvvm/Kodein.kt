@@ -5,9 +5,10 @@ import com.github.salomonbrys.kodein.bind
 import com.github.salomonbrys.kodein.instance
 import com.github.salomonbrys.kodein.provider
 import sample.kanda.data.LocalDataSource
-import sample.kanda.domain.ContactManagerUseCase
+import sample.kanda.data.RetrieveContactsDataSource
 import sample.kanda.domain.LocalRepository
-import sample.kanda.mvvm.home.homeModule
+import sample.kanda.domain.RetrieveContacts
+import sample.kanda.mvvm.home.HomeViewModel
 
 /**
  * Created by jcosilva on 2/5/2018.
@@ -15,14 +16,13 @@ import sample.kanda.mvvm.home.homeModule
 class Injector {
     val kodein = Kodein {
 
-        bind<ContactManagerUseCase>() with provider { ContactManagerUseCase(dataSource = instance("InMemory")) }
+        bind<LocalRepository>() with provider { LocalDataSource() }
 
-        bind<LocalRepository>(DB) with provider { LocalDataSource() }
+        bind<RetrieveContacts>() with provider { RetrieveContactsDataSource() }
 
-        import(homeModule)
-    }
+        bind<HomeViewModel>() with provider {
+            HomeViewModel(contacts = instance())
+        }
 
-    companion object {
-        val DB = "DataBase"
     }
 }
