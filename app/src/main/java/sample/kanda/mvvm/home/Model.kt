@@ -14,6 +14,8 @@ fun ContactPresentation.getInitials(): String {
             .take(3)
             .map { it.first() }
             .joinToString("", limit = 3)
+            .let { if (it.isEmpty()) "AB" else it }
+            .capitalize()
 }
 
 object MapperContactToPresentation {
