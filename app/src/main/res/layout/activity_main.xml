@@ -34,6 +34,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="8dp"
+        android:visibility="gone"
         app:srcCompat="@drawable/ic_add" />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package sample.kanda.data
 
+
 import sample.kanda.domain.Contact
 import sample.kanda.domain.RetrieveContacts
 

@@ -27,6 +27,11 @@ class HomeActivity : AppCompatActivity() {
         viewModel
                 .execute()
                 .let { manageState(it) }
+
+        addContact.setOnClickListener {
+            action.data = Uri.parse("app://open.register")
+            startActivity(action)
+        }
     }
 
     private fun manageState(state: State) {
@@ -42,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
 
     fun setUpViews() {
         val manager = LinearLayoutManager(this)
@@ -59,4 +65,5 @@ class HomeActivity : AppCompatActivity() {
     fun feedList(list: List<ContactPresentation>) {
         contactList.adapter = Adapter(list)
     }
+
 }
