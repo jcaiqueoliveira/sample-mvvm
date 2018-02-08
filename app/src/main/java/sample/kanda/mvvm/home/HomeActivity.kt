@@ -1,6 +1,5 @@
 package sample.kanda.mvvm.home
 
-import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -22,12 +21,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel.init()
-        viewModel.liveData.observe(this, Observer { state ->
-            state?.apply {
-                manageState(this)
-            }
-        })
+        viewModel
+                .execute()
+                .let { manageState(it) }
+
         addContact.setOnClickListener {
             action.data = Uri.parse("app://open.register")
             startActivity(action)
