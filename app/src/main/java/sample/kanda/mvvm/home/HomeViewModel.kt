@@ -2,8 +2,6 @@ package sample.kanda.mvvm.home
 
 import android.arch.lifecycle.ViewModel
 
-import sample.kanda.domain.Label
-
 import sample.kanda.domain.RetrieveContacts
 
 /**
@@ -11,22 +9,18 @@ import sample.kanda.domain.RetrieveContacts
  */
 class HomeViewModel(private val contacts: RetrieveContacts) : ViewModel() {
 
-    fun execute(): State {
+    fun loadContacts(): State {
         return contacts
                 .getAll()
-                .map { MapperContactToPresentation(it) }
+                .map { ContactToRowMapper(it) }
                 .let {
                     if (it.isEmpty()) State.EmptyState else State.ListContacts(it)
                 }
     }
-}
 
-sealed class Event {
-    object AddContact : Event()
 }
 
 sealed class State {
-    data class ListContacts(val listContacts: List<ContactPresentation>) : State()
-    data class InitFields(val label: Label) : State()
+    data class ListContacts(val listContacts: List<ContactRow>) : State()
     object EmptyState : State()
 }

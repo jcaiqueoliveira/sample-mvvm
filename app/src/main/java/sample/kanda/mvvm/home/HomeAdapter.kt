@@ -7,13 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_layout_home_list.view.*
 import sample.kanda.mvvm.R
 
-
-        /**
-         * Created by jcosilva on 2/7/2018.
-         */
-typealias ContactList = List<ContactPresentation>
-
-class Adapter(private val contacts: ContactList) : RecyclerView.Adapter<ViewHolder>() {
+class HomeAdapter(private val contacts: List<ContactRow>) : RecyclerView.Adapter<ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
                 .from(parent.context)
@@ -34,11 +28,11 @@ class Adapter(private val contacts: ContactList) : RecyclerView.Adapter<ViewHold
 }
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun setItem(item: ContactPresentation) {
+    fun setItem(item: ContactRow) {
         itemView.apply {
             nameProperty.text = item.propertyName
             companyName.text = item.companyName
-            initialsName.text = item.getInitials()
+            initialsName.text = item.initials
         }
     }
 }

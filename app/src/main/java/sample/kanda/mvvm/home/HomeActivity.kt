@@ -25,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setUpViews()
         viewModel
-                .execute()
+                .loadContacts()
                 .let { manageState(it) }
 
         addContact.setOnClickListener {
@@ -62,8 +62,8 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun feedList(list: List<ContactPresentation>) {
-        contactList.adapter = Adapter(list)
+    fun feedList(list: List<ContactRow>) {
+        contactList.adapter = HomeAdapter(list)
     }
 
 }
