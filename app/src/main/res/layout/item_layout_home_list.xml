@@ -4,25 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:layout_marginEnd="4dp"
-    android:layout_marginStart="4dp"
-    app:cardCornerRadius="4dp">
+    android:layout_margin="@dimen/default_margin"
+    app:cardCornerRadius="@dimen/default_card_radius">
 
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
+        android:padding="@dimen/default_padding"
         app:columnCount="2"
         app:orientation="horizontal"
         app:rowCount="4">
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/initialsName"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/width_initials"
+            android:layout_height="@dimen/height_initials"
             android:gravity="center"
-            android:padding="4dp"
+            android:padding="@dimen/default_padding"
             app:autoSizeTextType="uniform"
             app:layout_gravity="left|center"
             app:layout_rowSpan="4"
@@ -32,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/property"
-            android:textSize="12sp"
+            android:textSize="@dimen/small_text_size"
             app:layout_gravity="fill" />
 
         <TextView
@@ -40,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textSize="16sp"
+            android:textSize="@dimen/big_text_size"
             android:textStyle="bold"
             tools:text="asdasdasd" />
 
@@ -49,13 +47,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fantasy_name"
-            android:textSize="12sp" />
+            android:textSize="@dimen/small_text_size" />
 
         <TextView
             android:id="@+id/companyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="@dimen/big_text_size"
             android:textStyle="bold"
             tools:text="Corp" />
     </android.support.v7.widget.GridLayout>

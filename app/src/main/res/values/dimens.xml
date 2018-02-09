@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_initials">60dp</dimen>
+    <dimen name="height_initials">60dp</dimen>
+    <dimen name="default_card_radius">4dp</dimen>
+    <dimen name="default_margin">4dp</dimen>
+    <dimen name="default_padding">4dp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="big_text_size">16sp</dimen>
+</resources>
