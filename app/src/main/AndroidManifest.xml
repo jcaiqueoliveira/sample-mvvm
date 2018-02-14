@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".register.RegisterActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -30,6 +29,7 @@
                     android:scheme="app" />
             </intent-filter>
         </activity>
+        <activity android:name=".detail.DetailActivity" />
     </application>
 
 </manifest>

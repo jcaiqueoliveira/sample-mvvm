@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_layout_home_list.view.*
 import sample.kanda.mvvm.R
 
-class HomeAdapter(private val contacts: List<ContactRow>) : RecyclerView.Adapter<ViewHolder>() {
+class HomeAdapter(
+        private val contacts: List<ContactRow>,
+        private val clickListener: ClickListener) : RecyclerView.Adapter<ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
                 .from(parent.context)
@@ -22,6 +25,7 @@ class HomeAdapter(private val contacts: List<ContactRow>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         contacts[position].apply {
             holder.setItem(this)
+            holder.clickItem { clickListener.onClick(this) }
         }
     }
 
@@ -35,4 +39,14 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             initialsName.text = item.initials
         }
     }
+
+    fun clickItem(click: () -> Unit) {
+        itemView.setOnClickListener {
+            click()
+        }
+    }
+}
+
+interface ClickListener {
+    fun onClick(item: ContactRow)
 }

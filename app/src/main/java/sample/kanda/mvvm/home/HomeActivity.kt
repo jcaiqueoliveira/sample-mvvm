@@ -10,11 +10,13 @@ import com.github.salomonbrys.kodein.android.appKodein
 import com.github.salomonbrys.kodein.instance
 import kotlinx.android.synthetic.main.activity_main.*
 import sample.kanda.mvvm.R
+import sample.kanda.mvvm.detail.DetailActivity
 import sample.kanda.mvvm.gone
 import sample.kanda.mvvm.viewModelProvider
 import sample.kanda.mvvm.visible
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), ClickListener {
+
     val kodein by LazyKodein(appKodein)
     val viewModel by viewModelProvider { kodein.instance<HomeViewModel>() }
     val action by lazy { Intent() }
@@ -27,11 +29,6 @@ class HomeActivity : AppCompatActivity() {
         viewModel
                 .loadContacts()
                 .let { manageState(it) }
-
-        addContact.setOnClickListener {
-            action.data = Uri.parse("app://open.register")
-            startActivity(action)
-        }
     }
 
     private fun manageState(state: State) {
@@ -63,7 +60,15 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun feedList(list: List<ContactRow>) {
-        contactList.adapter = HomeAdapter(list)
+        contactList.adapter = HomeAdapter(list, this)
     }
 
+    override fun onClick(item: ContactRow) {
+        DetailActivity
+                .intentToDetail(0)
+                .setClass(this@HomeActivity, DetailActivity::class.java)
+                .apply {
+                    startActivity(this)
+                }
+    }
 }
