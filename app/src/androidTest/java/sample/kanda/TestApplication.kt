@@ -14,7 +14,6 @@ class TestApplication : Application(), KodeinAware {
     override val kodein: Kodein = InjectorTest().kodein
     override fun onCreate() {
         super.onCreate()
-        Log.e("opa", "opa")
     }
 }
 

@@ -9,7 +9,6 @@ import android.view.View
 /**
  * Created by jcosilva on 2/7/2018.
  */
-
 @Suppress("UNCHECKED_CAST")
 inline fun <reified VM : ViewModel> FragmentActivity.viewModelProvider(
         mode: LazyThreadSafetyMode = LazyThreadSafetyMode.NONE,
