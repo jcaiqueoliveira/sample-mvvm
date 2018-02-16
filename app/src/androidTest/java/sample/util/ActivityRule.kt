@@ -19,11 +19,20 @@ abstract class ActivityRule<T : Activity>(clazz: Class<T>) {
     @get:Rule
     val rule: ActivityTestRule<T> = ActivityTestRule(clazz, true, false)
 
-    val injector = InstrumentationRegistry.getInstrumentation().targetContext.testApplication().kodein
+    val injector = InstrumentationRegistry
+            .getInstrumentation()
+            .targetContext
+            .testApplication()
+            .kodein
 
     fun beforeTests() {
         Intents.init()
-        injector.addExtend(Injector().kodein, allowOverride = true)
+        injector.addExtend(
+                kodein = Injector(InstrumentationRegistry
+                        .getInstrumentation()
+                        .context)
+                        .kodein,
+                allowOverride = true)
     }
 
     fun startActivity(b: Bundle? = null) {

@@ -19,29 +19,25 @@ import sample.kanda.mvvm.home.HomeViewModel
 class Injector(context: Context) {
     val kodein = Kodein {
 
-        bind<RetrieveContacts>(IN_MEMORY) with provider { InMemory() }
-
-        bind<RetrieveLabels>(IN_MEMORY) with provider { InMemoryLabels() }
-
         bind<HomeViewModel>() with provider {
-            HomeViewModel(contacts = instance(LOCAL))
+            HomeViewModel(contacts = instance())
         }
 
         bind<DetailViewModel>() with provider {
             DetailViewModel(
-                    contactDataSource = instance(LOCAL),
-                    fieldDataSource = instance(LOCAL)
+                    contactDataSource = instance(),
+                    fieldDataSource = instance()
             )
         }
 
         bind<AppDataBase>() with singleton { dataBaseBuilder(context) }
 
-        bind<RetrieveContacts>(LOCAL) with provider {
+        bind<RetrieveContacts>() with provider {
             ContactDataSource(
                     contactDao = instance<AppDataBase>().contactDao())
         }
 
-        bind<RetrieveLabels>(LOCAL) with provider {
+        bind<RetrieveLabels>() with provider {
             LabelDataSource(
                     labelDao = instance<AppDataBase>().labelDao()
             )
