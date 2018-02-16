@@ -64,7 +64,7 @@ class HomeActivity : AppCompatActivity(), ClickListener {
 
     override fun onClick(item: ContactRow) {
         DetailActivity
-                .intentToDetail(0)
+                .intentToDetail(item.id)
                 .apply {
                     startActivity(this)
                 }
