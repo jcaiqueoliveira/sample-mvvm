@@ -16,11 +16,11 @@ interface ContactDao {
     fun findContactById(contactId: Int): ContactEntity
 
     @Insert(onConflict = REPLACE)
-    fun insertContact(task: ContactEntity)
+    fun insertContact(contact: ContactEntity)
 
     @Update(onConflict = REPLACE)
-    fun updateContact(task: ContactEntity)
+    fun updateContact(contact: ContactEntity)
 
     @Delete
-    fun deleteContact(task: ContactEntity)
+    fun deleteContact(contact: ContactEntity)
 }
