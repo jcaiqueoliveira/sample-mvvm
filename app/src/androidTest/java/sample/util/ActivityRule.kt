@@ -33,6 +33,7 @@ abstract class ActivityRule<T : Activity>(clazz: Class<T>) {
                         .context)
                         .kodein,
                 allowOverride = true)
+
     }
 
     fun startActivity(b: Bundle? = null) {

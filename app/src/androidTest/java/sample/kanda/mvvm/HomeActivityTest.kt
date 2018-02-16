@@ -18,7 +18,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import sample.kanda.domain.Contact
 import sample.kanda.domain.RetrieveContacts
-import sample.kanda.mvvm.Injector.Companion.LOCAL
 import sample.kanda.mvvm.home.HomeActivity
 import sample.util.ActivityRule
 

@@ -2,8 +2,6 @@ package sample.kanda.mvvm
 
 import android.content.Context
 import com.github.salomonbrys.kodein.*
-import sample.kanda.data.InMemory
-import sample.kanda.data.InMemoryLabels
 import sample.kanda.data.local.AppDataBase
 import sample.kanda.data.local.AppDataBase.Companion.dataBaseBuilder
 import sample.kanda.data.local.contact.ContactDataSource
@@ -18,6 +16,7 @@ import sample.kanda.mvvm.home.HomeViewModel
  */
 class Injector(context: Context) {
     val kodein = Kodein {
+
 
         bind<HomeViewModel>() with provider {
             HomeViewModel(contacts = instance())
@@ -44,8 +43,4 @@ class Injector(context: Context) {
         }
     }
 
-    companion object {
-        val IN_MEMORY = "inMemory"
-        val LOCAL = "local"
-    }
 }
