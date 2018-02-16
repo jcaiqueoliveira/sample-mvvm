@@ -34,7 +34,6 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun feedFields(contact: DetailedContact) {
-        with(contact) {}
         contact.apply {
             detailName.editText?.setText(name)
             detailEmail.editText?.setText(email)

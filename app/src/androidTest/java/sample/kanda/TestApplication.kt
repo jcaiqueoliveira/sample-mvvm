@@ -12,9 +12,6 @@ import sample.util.InjectorTest
  */
 class TestApplication : Application(), KodeinAware {
     override val kodein: Kodein = InjectorTest().kodein
-    override fun onCreate() {
-        super.onCreate()
-    }
 }
 
 fun Context.asApp() = this.applicationContext as TestApplication
