@@ -7,4 +7,6 @@ interface RetrieveContacts {
 
     fun getAll(): List<Contact>
 
+    fun getContact(id: Int): List<Contact>
+
 }

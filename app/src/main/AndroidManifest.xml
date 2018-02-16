@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".register.RegisterActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -27,6 +26,18 @@
 
                 <data
                     android:host="open.register"
+                    android:scheme="app" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".detail.DetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="open.detail"
                     android:scheme="app" />
             </intent-filter>
         </activity>

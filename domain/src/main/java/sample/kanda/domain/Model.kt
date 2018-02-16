@@ -9,14 +9,16 @@ data class Label(val labelName: String,
                  val labelTelephone: String,
                  val labelFantasyName: String,
                  val labelCnpj: String,
-                 val labelMei: String,
-                 val action: Action? = null)
+                 val mei: Mei)
 
-data class Action(val url: String)
+data class Mei(
+        val labelMei: String,
+        val labelPositiveOption: String,
+        val labelNegativeOption: String)
 
 data class Contact(val name: String,
-                  val email: String,
-                  val telephone: String,
-                  val fantasyName: String,
-                  val cnpj: String,
-                  val isMei: Boolean)
+                   val email: String,
+                   val telephone: String,
+                   val fantasyName: String,
+                   val cnpj: String,
+                   val isMei: Boolean)

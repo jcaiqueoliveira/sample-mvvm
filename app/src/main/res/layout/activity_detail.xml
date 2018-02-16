@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sample.kanda.mvvm.detail.DetailActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/detailName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/detailEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailName"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/detailPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailEmail"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/detailFantasyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailPhone"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/detailCnpj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailFantasyName"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailCnpj"
+            android:layout_margin="@dimen/margin_default_detail_activity"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detailTextMei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Which is your most favorite?" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/detailPositiveOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:id="@+id/detailNegativeOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </RadioGroup>
+    </RelativeLayout>
+</ScrollView>
