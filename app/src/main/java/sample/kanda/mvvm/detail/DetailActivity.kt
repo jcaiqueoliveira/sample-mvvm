@@ -1,6 +1,7 @@
 package sample.kanda.mvvm.detail
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.salomonbrys.kodein.LazyKodein
@@ -53,6 +54,7 @@ class DetailActivity : AppCompatActivity() {
         fun intentToDetail(id: Int): Intent {
             return Intent().apply {
                 putExtra(ID_CONTACT, id)
+                data = Uri.parse("app://open.detail")
             }
         }
     }

@@ -2,16 +2,14 @@ package sample.kanda
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
-import com.github.salomonbrys.kodein.Kodein
 import com.github.salomonbrys.kodein.KodeinAware
-import sample.util.InjectorTest
+import com.github.salomonbrys.kodein.conf.ConfigurableKodein
 
 /**
  * Created by jcosilva on 2/14/2018.
  */
 class TestApplication : Application(), KodeinAware {
-    override val kodein: Kodein = InjectorTest().kodein
+    override val kodein = ConfigurableKodein(mutable = true)
 }
 
-fun Context.asApp() = this.applicationContext as TestApplication
+fun Context.testApplication() = this.applicationContext as TestApplication

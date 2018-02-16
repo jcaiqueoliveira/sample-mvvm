@@ -45,7 +45,6 @@ class HomeActivity : AppCompatActivity(), ClickListener {
         }
     }
 
-
     fun setUpViews() {
         val manager = LinearLayoutManager(this)
         contactList.apply {
@@ -66,7 +65,6 @@ class HomeActivity : AppCompatActivity(), ClickListener {
     override fun onClick(item: ContactRow) {
         DetailActivity
                 .intentToDetail(0)
-                .setClass(this@HomeActivity, DetailActivity::class.java)
                 .apply {
                     startActivity(this)
                 }
