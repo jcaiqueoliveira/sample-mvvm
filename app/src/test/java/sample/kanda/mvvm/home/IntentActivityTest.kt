@@ -41,7 +41,7 @@ class IntentActivityTest {
     }
 
     @Test
-    fun check_if_intent_to_next_activity_is_correctly() {
+    fun `check if intent to next activity is correctly`() {
 
         val id = shadowActivity
                 .peekNextStartedActivity()
