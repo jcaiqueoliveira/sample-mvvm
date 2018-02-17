@@ -41,12 +41,12 @@ abstract class AppDataBase : RoomDatabase() {
             return Room
                     .databaseBuilder(context, AppDataBase::class.java, "sample-db")
                     .allowMainThreadQueries()
-                    .addCallback(callBackToPopulateDataBase(context))
+                    .addCallback(callBackToPopulateDataBase())
                     .build()
 
         }
 
-        private fun callBackToPopulateDataBase(context: Context) = object : RoomDatabase.Callback() {
+        private fun callBackToPopulateDataBase() = object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
                 db.insert(TABLE_LABEL, SQLiteDatabase.CONFLICT_REPLACE, populateDatabase())
