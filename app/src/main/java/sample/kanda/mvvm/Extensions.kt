@@ -9,6 +9,7 @@ import android.view.View
 /**
  * Created by jcosilva on 2/7/2018.
  */
+//https://github.com/ubiratansoares/kryptokarteira-mobile/blob/master/core-architecture/src/main/java/br/ufs/architecture/core/presentation/util/ViewModels.kt
 @Suppress("UNCHECKED_CAST")
 inline fun <reified VM : ViewModel> FragmentActivity.viewModelProvider(
         mode: LazyThreadSafetyMode = LazyThreadSafetyMode.NONE,
