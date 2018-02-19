@@ -3,8 +3,11 @@ package sample.kanda.mvvm
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
+import android.support.design.widget.TextInputLayout
 import android.support.v4.app.FragmentActivity
 import android.view.View
+import android.widget.Toast
 
 /**
  * Created by jcosilva on 2/7/2018.
@@ -28,4 +31,13 @@ fun View.visible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+
+fun Context.toast(msg: String, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, msg, duration).show()
+}
+
+fun TextInputLayout.clearErrorMsg() {
+    error = null
 }

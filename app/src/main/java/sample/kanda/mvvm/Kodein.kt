@@ -8,8 +8,11 @@ import sample.kanda.data.local.contact.ContactDataSource
 import sample.kanda.data.local.contact.LabelDataSource
 import sample.kanda.domain.RetrieveContacts
 import sample.kanda.domain.RetrieveLabels
+import sample.kanda.domain.SaveContacts
 import sample.kanda.mvvm.detail.DetailViewModel
 import sample.kanda.mvvm.home.HomeViewModel
+import sample.kanda.mvvm.register.validators.FieldsValidator
+import sample.kanda.mvvm.register.RegisterViewModel
 
 /**
  * Created by jcosilva on 2/5/2018.
@@ -29,6 +32,14 @@ class Injector(context: Context) {
             )
         }
 
+        bind<RegisterViewModel>() with provider {
+            RegisterViewModel(
+                    contactDataSource = instance(),
+                    fieldDataSource = instance(),
+                    fieldsValidator = instance()
+            )
+        }
+
         bind<AppDataBase>() with singleton { dataBaseBuilder(context) }
 
         bind<RetrieveContacts>() with provider {
@@ -41,6 +52,14 @@ class Injector(context: Context) {
                     labelDao = instance<AppDataBase>().labelDao()
             )
         }
+
+        bind<FieldsValidator>() with provider { FieldsValidator() }
+
+        bind<SaveContacts>() with provider {
+            ContactDataSource(
+                    contactDao = instance<AppDataBase>().contactDao())
+        }
+
     }
 
 }
