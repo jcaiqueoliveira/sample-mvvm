@@ -1,9 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="sample.kanda.mvvm.register.RegisterActivity">
+    tools:context="sample.kanda.mvvm.detail.DetailActivity">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/registerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/registerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerName"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/registerPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerEmail"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <com.github.pinball83.maskededittext.MaskedEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                app:mask="(**) *****-****"
+                app:notMaskedSymbol="*" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/registerCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerPhone"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/registerCnpj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerCompany"
+            android:layout_marginEnd="@dimen/margin_default_detail_activity"
+            android:layout_marginStart="@dimen/margin_default_detail_activity"
+            android:layout_marginTop="@dimen/margin_default_detail_activity">
+
+            <com.github.pinball83.maskededittext.MaskedEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                app:mask="**.***.***/****-**"
+                app:notMaskedSymbol="*" />
+        </android.support.design.widget.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/mei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registerCnpj"
+            android:layout_margin="@dimen/margin_default_detail_activity"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/registerTextMei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Which is your most favorite?" />
+
+            <RadioButton
+                android:id="@+id/registerPositiveOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/registerNegativeOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/registerAction"
+            style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/mei"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/default_margin"
+            android:gravity="center"
+            android:text="@string/save" />
+    </RelativeLayout>
+</ScrollView>
