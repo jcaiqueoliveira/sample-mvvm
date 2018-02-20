@@ -2,7 +2,6 @@ package sample.util
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
 import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.intent.Intents
 import android.support.test.rule.ActivityTestRule
@@ -27,6 +26,7 @@ abstract class ActivityRule<T : Activity>(clazz: Class<T>) {
 
     fun beforeTests() {
         Intents.init()
+
         injector.addExtend(
                 kodein = Injector(InstrumentationRegistry
                         .getInstrumentation()
@@ -36,11 +36,9 @@ abstract class ActivityRule<T : Activity>(clazz: Class<T>) {
 
     }
 
-    fun startActivity(b: Bundle? = null) {
-        Intent().apply {
-            b?.apply { putExtras(b) }
-            rule.launchActivity(this)
-        }
+    fun startActivity(intent: Intent? = null) {
+        val i = intent ?: Intent()
+        rule.launchActivity(i)
     }
 
     fun addModule(module: Kodein.Module) {

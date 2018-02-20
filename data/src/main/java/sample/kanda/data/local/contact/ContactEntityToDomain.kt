@@ -9,6 +9,7 @@ object ContactEntityToDomain {
     operator fun invoke(contactEntity: ContactEntity): Contact {
         return contactEntity.run {
             Contact(
+                    id = id,
                     name = name,
                     email = email,
                     telephone = phone,

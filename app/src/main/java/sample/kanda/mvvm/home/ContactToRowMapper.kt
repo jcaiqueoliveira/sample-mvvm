@@ -9,10 +9,13 @@ import sample.kanda.domain.Contact
 
 object ContactToRowMapper {
     operator fun invoke(contact: Contact): ContactRow {
-        return ContactRow(
-                companyName = contact.fantasyName,
-                propertyName = contact.name,
-                initials = getInitialsName(contact.name))
+        return contact.run {
+            ContactRow(
+                    id = id,
+                    companyName = fantasyName,
+                    propertyName = name,
+                    initials = getInitialsName(name))
+        }
     }
 
     private fun getInitialsName(name: String): String {

@@ -10,14 +10,16 @@ object ContactToDetailedMapper {
     val phoneFormatter: Formatter = PhoneFormatter()
 
     operator fun invoke(contact: Contact): DetailedContact {
-        return DetailedContact(
-                name = contact.name,
-                email = contact.email,
-                phone = phoneFormatter.format(contact.telephone),
-                companyName = contact.fantasyName,
-                cnpj = cnpjFormater.format(contact.cnpj),
-                isMei = contact.isMei,
-                data = ""
-        )
+        return contact.run {
+            DetailedContact(
+                    id = id,
+                    name = name,
+                    email = email,
+                    phone = phoneFormatter.format(telephone),
+                    companyName = fantasyName,
+                    cnpj = cnpjFormater.format(cnpj),
+                    isMei = isMei,
+                    data = "")
+        }
     }
 }
