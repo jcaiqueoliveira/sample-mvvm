@@ -4,6 +4,7 @@ import sample.kanda.domain.Contact
 import sample.kanda.domain.RemoveContact
 import sample.kanda.domain.RetrieveContacts
 import sample.kanda.domain.SaveContacts
+import sample.kanda.domain.*
 
 /**
  * Created by caique on 2/16/18.
@@ -20,9 +21,11 @@ class ContactDataSource(val contactDao: ContactDao) : RetrieveContacts, RemoveCo
                 .map { ContactEntityToDomain(it) }
     }
 
-    override fun getContact(id: Int): List<Contact> {
-        return arrayListOf(contactDao.findContactById(id))
-                .map { ContactEntityToDomain(it) }
+    override fun getContact(id: Int): Either<List<Contact>> {
+        return tryOrError {
+            listOf(contactDao.findContactById(id))
+                    .map { ContactEntityToDomain(it) }
+        }
     }
 
     override fun excludeContact(contactId: Int) {

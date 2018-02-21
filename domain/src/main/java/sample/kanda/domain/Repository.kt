@@ -6,5 +6,5 @@ package sample.kanda.domain
 
 interface RetrieveLabels {
 
-    fun getScreenLabels(): List<Label>
+    fun getScreenLabels(): Either<List<Label>>
 }
