@@ -75,3 +75,9 @@ dependencies {
     implementation 'com.github.pinball83:masked-edittext:1.0.4'
 
 }
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}

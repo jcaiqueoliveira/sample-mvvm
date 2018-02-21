@@ -15,9 +15,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import sample.kanda.data.InMemory
 import sample.kanda.data.InMemoryLabels
-import sample.kanda.domain.RemoveContact
-import sample.kanda.domain.RetrieveContacts
-import sample.kanda.domain.RetrieveLabels
+import sample.kanda.domain.*
 import sample.util.ActivityRule
 
 /**
@@ -50,9 +48,18 @@ class DetailActivityTest : ActivityRule<DetailActivity>(DetailActivity::class.ja
     fun shouldShowLabelsAndContactInfoCorrectly() {
         val pair = retrieveContacts
                 .getContact(0)
+                .map { it.first() }
                 .map { ContactToDetailedMapper(it) }
-                .zip(retrieveLabels.getScreenLabels())
-                .first()
+                .flatMap { detailContact ->
+                    retrieveLabels.getScreenLabels()
+                            .map { it.first() to detailContact }
+                }
+                .let {
+                    when (it) {
+                        is Either.Success -> State.Success(it.value.first, it.value.second)
+                        is Either.Error -> State.Error
+                    }
+                }
 
         val intent = Intent()
                 .putExtra(DetailActivity.ID_CONTACT, 0)

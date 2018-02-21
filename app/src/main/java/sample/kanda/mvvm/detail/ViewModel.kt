@@ -1,10 +1,6 @@
 package sample.kanda.mvvm.detail
 
 import android.arch.lifecycle.ViewModel
-import sample.kanda.domain.Label
-import sample.kanda.domain.RemoveContact
-import sample.kanda.domain.RetrieveContacts
-import sample.kanda.domain.RetrieveLabels
 import sample.kanda.domain.*
 
 
@@ -33,14 +29,13 @@ class DetailViewModel(
                 }
     }
 
-    sealed class State {
-        object Error : State()
-        data class Success(val label: Label, val detailedContact: DetailedContact) : State()
-    }
-
-
     fun excludeContact(id: Int) {
         removeContact.excludeContact(id)
     }
 
+}
+
+sealed class State {
+    object Error : State()
+    data class Success(val label: Label, val detailedContact: DetailedContact) : State()
 }

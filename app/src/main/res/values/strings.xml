@@ -8,4 +8,5 @@
     <string name="save">Salvar</string>
     <string name="error_msg_mei">Selecione uma opção para o campo MEI</string>
     <string name="button_exclude_text">Apagar contato</string>
+    <string name="generic_error_msg">Erro ao realizar uma solicitação</string>
 </resources>

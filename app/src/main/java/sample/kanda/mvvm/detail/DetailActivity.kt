@@ -10,6 +10,7 @@ import com.github.salomonbrys.kodein.instance
 import kotlinx.android.synthetic.main.activity_detail.*
 import sample.kanda.domain.Label
 import sample.kanda.mvvm.R
+import sample.kanda.mvvm.toast
 import sample.kanda.mvvm.viewModelProvider
 
 class DetailActivity : AppCompatActivity() {
@@ -21,9 +22,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
         viewModel.getContactInfo(getIdIntent())
                 .let {
-                    feedLabels(it.second)
-                    feedFields(it.first)
-                    setUpListener()
+                    manageState(it)
                 }
     }
 
@@ -62,8 +61,19 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    fun manageState(state: State) {
+        when (state) {
+            State.Error -> toast(getString(R.string.generic_error_msg))
+            is State.Success -> {
+                feedLabels(state.label)
+                feedFields(state.detailedContact)
+                setUpListener()
+            }
+        }
+    }
+
     private fun getIdIntent(): Int {
-        return intent.extras.getInt(ID_CONTACT,0)
+        return intent.extras.getInt(ID_CONTACT, 0)
     }
 
     companion object {

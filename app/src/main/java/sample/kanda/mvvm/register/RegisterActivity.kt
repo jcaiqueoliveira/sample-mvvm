@@ -22,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel
                 .getLabels()
                 .let {
-                    setUpLabels(it)
+                    manageState(it)
                 }
 
         setUpListeners()
@@ -62,8 +62,10 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun manageState(state: State) {
         when (state) {
-            State.Success -> success()
+            State.Success_Register -> success()
             is State.InvalidField -> showMessageToInvalidFields(state.fields)
+            is State.ShowLabels -> setUpLabels(state.label)
+            State.Error -> toast(getString(R.string.generic_error_msg))
         }
     }
 

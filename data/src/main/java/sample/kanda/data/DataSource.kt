@@ -3,7 +3,9 @@ package sample.kanda.data
 
 import sample.kanda.data.InMemory.State.EMPTY_STATE
 import sample.kanda.domain.Contact
+import sample.kanda.domain.Either
 import sample.kanda.domain.RetrieveContacts
+import sample.kanda.domain.tryOrError
 
 /**
  * Created by jcosilva on 2/5/2018.
@@ -21,8 +23,10 @@ class InMemory : RetrieveContacts {
             cnpj = 27_825_363_0001_12.toString(),
             isMei = true)
 
-    override fun getContact(id: Int): List<Contact> {
-        return listOf(contact)
+    override fun getContact(id: Int): Either<List<Contact>> {
+        return tryOrError {
+            listOf(contact)
+        }
     }
 
     override fun getAll(): List<Contact> {
