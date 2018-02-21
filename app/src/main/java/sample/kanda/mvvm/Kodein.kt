@@ -66,6 +66,7 @@ class Injector(context: Context) {
             ContactDataSource(
                     contactDao = instance<AppDataBase>().contactDao())
         }
+
     }
 
 }

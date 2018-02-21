@@ -16,7 +16,6 @@ abstract class Robot {
     }
 
     fun checkViewWithText(viewId: Int, text: String) {
-
         onView(withId(viewId))
                 .check(matches(allOf(isDisplayed(), withText(text))))
     }

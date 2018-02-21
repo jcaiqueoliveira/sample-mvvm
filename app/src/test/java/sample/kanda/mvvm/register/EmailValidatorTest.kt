@@ -26,6 +26,7 @@ class EmailValidatorTest {
 
         assertThat(EmailValidator().isValid("x@abc"))
                 .isFalse()
+
     }
 
 }
