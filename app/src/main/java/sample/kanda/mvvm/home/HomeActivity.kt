@@ -26,6 +26,10 @@ class HomeActivity : AppCompatActivity(), ClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpViews()
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel
                 .loadContacts()
                 .let { manageState(it) }

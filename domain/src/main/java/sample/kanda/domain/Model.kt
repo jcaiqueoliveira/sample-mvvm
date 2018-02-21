@@ -16,9 +16,11 @@ data class Mei(
         val labelPositiveOption: String,
         val labelNegativeOption: String)
 
-data class Contact(val name: String,
-                   val email: String,
-                   val telephone: String,
-                   val fantasyName: String,
-                   val cnpj: String,
-                   val isMei: Boolean)
+data class Contact(
+        val id: Int = 0,
+        val name: String,
+        val email: String,
+        val telephone: String,
+        val fantasyName: String,
+        val cnpj: String,
+        val isMei: Boolean)

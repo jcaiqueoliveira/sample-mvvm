@@ -19,6 +19,12 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        viewModel.getContactInfo(getIdIntent())
+                .let {
+                    feedLabels(it.second)
+                    feedFields(it.first)
+                    setUpListener()
+                }
     }
 
     fun feedLabels(label: Label) {
@@ -45,7 +51,19 @@ class DetailActivity : AppCompatActivity() {
             detailPositiveOption.isChecked = isMei
             detailNegativeOption.isChecked = !isMei
         }
-        Intent(this, DetailActivity::class.java)
+    }
+
+    fun setUpListener() {
+        detailExcludeAction.setOnClickListener {
+            viewModel.excludeContact(getIdIntent())
+                    .let {
+                        finish()
+                    }
+        }
+    }
+
+    private fun getIdIntent(): Int {
+        return intent.extras.getInt(ID_CONTACT,0)
     }
 
     companion object {

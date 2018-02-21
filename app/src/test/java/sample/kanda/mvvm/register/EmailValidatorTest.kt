@@ -21,18 +21,11 @@ class EmailValidatorTest {
     @Test
     fun `should invalidate a not correctly email`() {
 
-        assertThat(EmailValidator().isValid("x*@abc.com"))
-                .isFalse()
-
         assertThat(assertThat(EmailValidator().isValid("x@@abc.com"))
                 .isFalse())
 
         assertThat(EmailValidator().isValid("x@abc"))
                 .isFalse()
-
-        assertThat(EmailValidator().isValid("zignd.igor@gmail.com.br.br"))
-                .isFalse()
-
 
     }
 

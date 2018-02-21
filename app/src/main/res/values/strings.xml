@@ -7,5 +7,5 @@
     <string name="msg_error_invalid_field">Dado invádlido</string>
     <string name="save">Salvar</string>
     <string name="error_msg_mei">Selecione uma opção para o campo MEI</string>
-
+    <string name="button_exclude_text">Apagar contato</string>
 </resources>

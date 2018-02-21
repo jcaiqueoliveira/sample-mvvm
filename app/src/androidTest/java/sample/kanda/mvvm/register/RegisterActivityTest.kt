@@ -25,7 +25,6 @@ class RegisterActivityTest : ActivityRule<RegisterActivity>(RegisterActivity::cl
 
     @Before
     fun beforeEachTest() {
-        super.beforeTests()
 
         addModule(Kodein.Module(allowSilentOverride = true) {
             bind<RetrieveLabels>() with singleton { InMemoryLabels() }
@@ -50,5 +49,4 @@ class RegisterActivityTest : ActivityRule<RegisterActivity>(RegisterActivity::cl
                 .checkViewsTextAreShownCorrectly()
 
     }
-
 }

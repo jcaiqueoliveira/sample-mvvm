@@ -29,7 +29,9 @@
                     android:scheme="app" />
             </intent-filter>
         </activity>
-        <activity android:name=".detail.DetailActivity">
+        <activity
+            android:name=".detail.DetailActivity"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

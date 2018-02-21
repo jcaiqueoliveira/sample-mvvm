@@ -1,6 +1,7 @@
 package sample.kanda.data
 
 
+import sample.kanda.data.InMemory.State.EMPTY_STATE
 import sample.kanda.domain.Contact
 import sample.kanda.domain.RetrieveContacts
 
@@ -9,7 +10,10 @@ import sample.kanda.domain.RetrieveContacts
  */
 
 class InMemory : RetrieveContacts {
+
+    private var nextState: State = EMPTY_STATE
     private val contact = Contact(
+            id = 0,
             name = "Kanda Sup Sa",
             email = "Kanda@Kanda.Kanda",
             telephone = 12_34567_8900.toString(),
@@ -24,6 +28,9 @@ class InMemory : RetrieveContacts {
     override fun getAll(): List<Contact> {
         val list: MutableList<Contact> = mutableListOf()
 
+        if (nextState == EMPTY_STATE) {
+            return list
+        }
         return list.apply {
             add(contact)
             add(contact)
@@ -31,4 +38,14 @@ class InMemory : RetrieveContacts {
             add(contact)
         }
     }
+
+    fun nextState(state: State) {
+        nextState = state
+    }
+
+    sealed class State {
+        object EMPTY_STATE : State()
+        object LIST_WITH_ITEMS : State()
+    }
 }
+
