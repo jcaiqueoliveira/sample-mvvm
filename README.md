@@ -14,3 +14,4 @@ Just a repository to apply some concepts of mvvm. The app idea is save some cont
 * Espresso
 * Mockito
 * Robolectric
+* AssertJ
